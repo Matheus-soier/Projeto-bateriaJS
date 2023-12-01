@@ -2,6 +2,12 @@ document.body.addEventListener('keyup', (event) => {
     playSound(event.code.toLowerCase());
 })
 
+document.querySelectorAll('.key').forEach(key => {
+    key.addEventListener('touchstart', () => {
+        playSound(key.getAttribute('data-key'));
+    });
+});
+
 document.querySelector('.composer button').addEventListener('click', () => {
     let song = document.querySelector('#input').value;
     if(song !== '') {
